@@ -42,10 +42,32 @@ class Utilidades:
         for ingrediente in lista:
             print(f"* {ingrediente}")
 
+    @staticmethod
+    def crearReceta():
+        ingredientes = []
+        pasos = []
+        nombre = input("Dame el nombre de la receta")
+        cantidadIngredientes = int(input("Cuantos ingedientes quieres "))
+        for ingrediente in range(cantidadIngredientes):
+            ingrediente = input("Dime el nombre del ingrediente ")
+            ingredientes.append(ingrediente)
+
+        cantidadDePasos = int(input("Cuantos pasos vas a hacer "))
+        for paso in range(cantidadDePasos):
+            paso = input("Dime el paso ")
+            pasos.append(paso)
+       
+        tipo = input("Que receta vas a hacer ")
+        if tipo.lower() == "vegetariana":
+            return RecetaVegetariana(nombre, ingredientes, pasos)
+        
+        elif tipo.lower()== "no vegetariana":
+            return RecetaNoVegetariana(nombre, ingredientes, pasos)
+
 # Función principal
 def principal():
-    receta1 = RecetaVegetariana("Ensalada César", ["lechuga", "queso", "pan tostado", "salsa"], ["Lavar", "Mezclar", "Servir"])
-    receta2 = RecetaNoVegetariana("Pollo al horno", ["pollo", "patatas", "ajo", "aceite"], ["Preparar", "Hornear", "Servir"])
+    for recetaCreada in range(2):
+        Utilidades.crearReceta()
     
     # Duplicación de código al imprimir
     print("== Mostrar recetas ==")
