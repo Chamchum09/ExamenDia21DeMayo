@@ -65,7 +65,7 @@ class Utilidades:
 
 # Función principal
 def principal():
-    #GUARDAR RECETAS
+    #GUARDAR RECETAs
     listaDeRecetas = []
 
     #CREAR RECETAS
