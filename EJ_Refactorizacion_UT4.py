@@ -43,7 +43,7 @@ class Utilidades:
             print(f"* {ingrediente}")
 
     @staticmethod
-    def crearReceta():
+    def crearReceta(tipo):
         ingredientes = []
         pasos = []
         nombre = input("Dame el nombre de la receta")
@@ -57,7 +57,6 @@ class Utilidades:
             paso = input("Dime el paso ")
             pasos.append(paso)
        
-        tipo = input("Que receta vas a hacer ")
         if tipo.lower() == "vegetariana":
             return RecetaVegetariana(nombre, ingredientes, pasos)
         
@@ -66,25 +65,24 @@ class Utilidades:
 
 # Función principal
 def principal():
-    recetasCreadas = []
-    for recetaCreada in range(2):
-       receta = Utilidades.crearReceta()
-       recetasCreadas.append(receta)
+    #GUARDAR RECETAS
+    listaDeRecetas = []
+
+    #CREAR RECETAS
+    for _ in range(2):
+        tipo = input("Dime el tipo de receta que quieres crear ")
+        receta = Utilidades.crearReceta(tipo)
+        listaDeRecetas.append(receta)
     
-    # Duplicación de código al imprimir
+    #MOSTRAR RECETAS
     print("== Mostrar recetas ==")
-    Utilidades.imprimir_receta(recetasCreadas[0])
-    Utilidades.imprimir_receta(recetasCreadas[1])
+    for recta in listaDeRecetas:
+        Utilidades.imprimir_receta(receta)
 
-    # Código duplicado para mostrar ingredientes
-    print("Ingredientes de Ensalada César:")
-    for ingrediente in recetasCreadas[0]:
-        print(f"* {ingrediente}")
-    
-    print("Ingredientes de Pollo al horno:")
-    for ingrediente in recetasCreadas[1]:
-        print(f"* {ingrediente}")
+    #MOSTRAR INGREDIENTES
 
+    for receta in listaDeRecetas:
+        Utilidades.mostrar_lista_ingredientes(receta.ingredientes)
 
 # Ejecutar el programa
 if __name__ == "__main__":
