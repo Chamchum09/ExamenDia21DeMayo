@@ -66,21 +66,23 @@ class Utilidades:
 
 # Función principal
 def principal():
+    recetasCreadas = []
     for recetaCreada in range(2):
-        Utilidades.crearReceta()
+       receta = Utilidades.crearReceta()
+       recetasCreadas.append(receta)
     
     # Duplicación de código al imprimir
     print("== Mostrar recetas ==")
-    Utilidades.imprimir_receta(receta1)
-    Utilidades.imprimir_receta(receta2)
+    Utilidades.imprimir_receta(recetasCreadas[0])
+    Utilidades.imprimir_receta(recetasCreadas[1])
 
     # Código duplicado para mostrar ingredientes
     print("Ingredientes de Ensalada César:")
-    for ingrediente in receta1.ingredientes:
+    for ingrediente in recetasCreadas[0]:
         print(f"* {ingrediente}")
     
     print("Ingredientes de Pollo al horno:")
-    for ingrediente in receta2.ingredientes:
+    for ingrediente in recetasCreadas[1]:
         print(f"* {ingrediente}")
 
 
